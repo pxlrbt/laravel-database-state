@@ -18,6 +18,13 @@ class SeedDatabaseStateCommand extends Command
     {
         $this->components->info('Seeding database state.');
 
+        $this->seedStates();
+
+        return self::SUCCESS;
+    }
+
+    protected function seedStates(): void
+    {
         $this->getStateClasses()->each(function ($class) {
             $this->components->twoColumnDetail(
                 $class,
@@ -35,13 +42,16 @@ class SeedDatabaseStateCommand extends Command
                 "<fg=gray>$runTime ms</> <fg=green;options=bold>DONE</>"
             );
         });
+    }
 
-        return self::SUCCESS;
+    protected function getFilePath(): string
+    {
+        return database_path('States');
     }
 
     protected function getStateClasses(): Collection
     {
-        return collect(app(Filesystem::class)->allFiles(database_path('States')))
+        return collect(app(Filesystem::class)->files($this->getFilePath()))
             ->map(fn ($file) => str($file->getPathname())
                 ->replace([base_path(), '.php', '/'], ['', '', '\\'])
                 ->ltrim('\\')

@@ -23,7 +23,8 @@ class DatabaseStateServiceProvider extends PackageServiceProvider
             ->hasConfigFile()
             ->hasCommands([
                 Commands\MakeCommand::class,
-                Commands\SeedDatabaseStateCommand::class
+                Commands\SeedDatabaseStateCommand::class,
+                Commands\SeedTenantsDatabaseStateCommand::class,
             ]);
     }
 
@@ -46,10 +47,12 @@ class DatabaseStateServiceProvider extends PackageServiceProvider
             return;
         }
 
-        if (! str($event->command)->startsWith('migrate')) {
-            return;
+        if (str($event->command)->startsWith('migrate')) {
+            Artisan::call(Commands\SeedDatabaseStateCommand::class, [], $event->output);
         }
 
-        Artisan::call(Commands\SeedDatabaseStateCommand::class, [], $event->output);
+        if (str($event->command)->startsWith('tenants:migrate')) {
+            Artisan::call(Commands\SeedTenantsDatabaseStateCommand::class, [], $event->output);
+        }
     }
 }

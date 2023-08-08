@@ -1,9 +1,9 @@
 # Laravel Database State
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/pxlrbt/laravel-db-state.svg?style=flat-square)](https://packagist.org/packages/pxlrbt/laravel-db-state)
-[![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/pxlrbt/laravel-db-state/run-tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/pxlrbt/laravel-db-state/actions?query=workflow%3Arun-tests+branch%3Amain)
-[![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/pxlrbt/laravel-db-state/fix-php-code-style-issues.yml?branch=main&label=code%20style&style=flat-square)](https://github.com/pxlrbt/laravel-db-state/actions?query=workflow%3A"Fix+PHP+code+style+issues"+branch%3Amain)
-[![Total Downloads](https://img.shields.io/packagist/dt/pxlrbt/laravel-db-state.svg?style=flat-square)](https://packagist.org/packages/pxlrbt/laravel-db-state)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/pxlrbt/laravel-database-state.svg?style=flat-square)](https://packagist.org/packages/pxlrbt/laravel-database-state)
+[![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/pxlrbt/laravel-database-state/run-tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/pxlrbt/laravel-database-state/actions?query=workflow%3Arun-tests+branch%3Amain)
+[![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/pxlrbt/laravel-database-state/fix-php-code-style-issues.yml?branch=main&label=code%20style&style=flat-square)](https://github.com/pxlrbt/laravel-database-state/actions?query=workflow%3A"Fix+PHP+code+style+issues"+branch%3Amain)
+[![Total Downloads](https://img.shields.io/packagist/dt/pxlrbt/laravel-database-state.svg?style=flat-square)](https://packagist.org/packages/pxlrbt/laravel-database-state)
 
 Seed critical state your databases with production data.
 
@@ -12,12 +12,12 @@ Seed critical state your databases with production data.
 You can install the package via composer:
 
 ```bash
-composer require pxlrbt/laravel-db-state
+composer require pxlrbt/laravel-database-state
 ```
 
 ### Add autoloader
 
-Add the namespace to the `composer.json`
+Add the `Database\States` namespace to the `composer.json`
 
 ```json
 {
