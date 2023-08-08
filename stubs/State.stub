@@ -1,0 +1,11 @@
+<?php
+
+namespace Database\States;
+
+class {{ class }}
+{
+    public function __invoke()
+    {
+        // Add your state here
+    }
+}
