@@ -19,15 +19,19 @@ class DatabaseStateServiceProvider extends PackageServiceProvider
          * More info: https://github.com/spatie/laravel-package-tools
          */
         $package
-            ->name('laravel-db-state')
+            ->name('database-state')
+            ->hasConfigFile()
             ->hasCommands([
                 Commands\MakeCommand::class,
                 Commands\SeedDatabaseStateCommand::class
             ]);
     }
 
-    public function bootingPackage()
+    public function packageBooted()
     {
+        if (config('database-state.run_after_migration') !== true) {
+            return;
+        }
 
         Event::listen(
             CommandFinished::class,

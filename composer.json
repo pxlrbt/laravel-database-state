@@ -1,12 +1,12 @@
 {
-    "name": "pxlrbt/laravel-db-state",
+    "name": "pxlrbt/laravel-database-state",
     "description": "Seed critical state for your production DBs.",
     "keywords": [
         "pxlrbt",
         "db",
         "seed"
     ],
-    "homepage": "https://github.com/pxlrbt/laravel-db-state",
+    "homepage": "https://github.com/pxlrbt/laravel-database-state",
     "license": "MIT",
     "authors": [
         {
