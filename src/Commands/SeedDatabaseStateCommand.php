@@ -53,9 +53,8 @@ class SeedDatabaseStateCommand extends Command
     {
         return collect(app(Filesystem::class)->files($this->getFilePath()))
             ->map(fn ($file) => str($file->getPathname())
-                ->replace([base_path(), '.php', '/'], ['', '', '\\'])
+                ->replace([base_path(), '.php', 'database/states', '/'], ['', '', 'Database\\States', '\\'])
                 ->ltrim('\\')
-                ->ucfirst()
                 ->toString()
             );
     }
