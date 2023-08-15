@@ -46,7 +46,7 @@ class SeedDatabaseStateCommand extends Command
 
     protected function getFilePath(): string
     {
-        return database_path('States');
+        return database_path('states');
     }
 
     protected function getStateClasses(): Collection

@@ -38,6 +38,6 @@ class SeedTenantsDatabaseStateCommand extends SeedDatabaseStateCommand
 
     protected function getFilePath(): string
     {
-        return database_path('States/Tenant');
+        return database_path('states/Tenant');
     }
 }
