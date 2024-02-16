@@ -24,8 +24,13 @@ class DatabaseStateServiceProvider extends PackageServiceProvider
             ->hasCommands([
                 Commands\MakeCommand::class,
                 Commands\SeedDatabaseStateCommand::class,
+            ]);
+
+        if (class_exists('\Stancl\Tenancy\Concerns\HasTenantOptions')) {
+            $package->hasCommands([
                 Commands\SeedTenantsDatabaseStateCommand::class,
             ]);
+        }
     }
 
     public function packageBooted()

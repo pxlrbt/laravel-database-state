@@ -51,6 +51,16 @@ class SeedDatabaseStateCommand extends Command
 
     protected function getStateClasses(): Collection
     {
+        $filesystem = app(Filesystem::class);
+
+        if ($filesystem->missing($this->getFilePath())) {
+            if (! $this->components->confirm("You don't have a `states` folder in your database folder. Do you want to create it?", true)) {
+                return collect();
+            }
+
+            $filesystem->ensureDirectoryExists($this->getFilePath());
+        }
+
         return collect(app(Filesystem::class)->files($this->getFilePath()))
             ->map(fn ($file) => str($file->getPathname())
                 ->replace([base_path(), '.php', 'database/states', '/'], ['', '', 'Database\\States', '\\'])
