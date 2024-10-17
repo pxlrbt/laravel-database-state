@@ -2,7 +2,6 @@
 
 namespace pxlrbt\LaravelDatabaseState;
 
-use App\Console\Commands\SeedDatabaseStateCommand;
 use Illuminate\Console\Events\CommandFinished;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Event;
@@ -26,7 +25,7 @@ class DatabaseStateServiceProvider extends PackageServiceProvider
                 Commands\SeedDatabaseStateCommand::class,
             ]);
 
-        if (class_exists('\Stancl\Tenancy\Concerns\HasTenantOptions')) {
+        if (trait_exists('\Stancl\Tenancy\Concerns\HasTenantOptions')) {
             $package->hasCommands([
                 Commands\SeedTenantsDatabaseStateCommand::class,
             ]);
@@ -44,7 +43,6 @@ class DatabaseStateServiceProvider extends PackageServiceProvider
             [$this, 'runDatabaseStateSeeder'],
         );
     }
-
 
     public function runDatabaseStateSeeder(CommandFinished $event): void
     {
